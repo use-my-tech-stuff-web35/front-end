@@ -22,6 +22,7 @@ const Dashboard = () => {
     <Router>
       <Header />
       <Route path="/signup" component={() => <SignUpComponent />} />
+      <Route path="/login" component={() => <Login />} />
     </Router>
   );
 };
