@@ -21,7 +21,6 @@ const TechRentalList = (props) => {
 			{techEquipments.map((tech) => (
 				<TechRentalCard getTech={getTech} techEquipments={techEquipments} setTechEquipment={setTechEquipments} key={tech.id} tech={tech} />
 			))}
-
 			<button onClick={getTech}>Get Available Equipment</button>
 		</div>
     )
