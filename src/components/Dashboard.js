@@ -14,17 +14,15 @@ import {
 import PrivateRoute from "./PrivateRoute";
 import TechRentalList from "./TechRentalList";
 import AddNewTech from "./AddNewTech";
-import EditTechItem from "./EditTechItem";
+import OrderTechItem from "./OrderTechItem";
 
 const Dashboard = () => {
   return (
     <Router>
       <Header />
-<<<<<<< HEAD
-=======
       <Route path="/signup" component={() => <SignUpComponent />} />
       <Route path="/login" component={() => <Login />} />
->>>>>>> 8948f111e8edc8b32ed585a9124900ad249902ff
+      <Route path="/ordertech" component={() => <OrderTechItem />} />
     </Router>
   );
 };
