@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default function SignUpForm(props) {
   const { formValues, change, submit, errors, buttonDisabled } = props;

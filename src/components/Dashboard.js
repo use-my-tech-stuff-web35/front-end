@@ -20,6 +20,11 @@ const Dashboard = () => {
   return (
     <Router>
       <Header />
+<<<<<<< HEAD
+=======
+      <Route path="/signup" component={() => <SignUpComponent />} />
+      <Route path="/login" component={() => <Login />} />
+>>>>>>> 8948f111e8edc8b32ed585a9124900ad249902ff
     </Router>
   );
 };

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
-import SignUpForm from "./SignUpForm";
+import SignUpForm from "./SingUpForm"
 import formSchema from "./formSchema";
 
 //form defaults
@@ -14,7 +14,7 @@ const formDefaults = {
 const defaultErrors = {
   username: "",
   password: "",
-};
+}; 
 
 export default function SignUpFormComponent() {
   //states
