@@ -15,13 +15,11 @@ import PrivateRoute from "./PrivateRoute";
 import TechRentalList from "./TechRentalList";
 import AddNewTech from "./AddNewTech";
 import EditTechItem from "./EditTechItem";
-// import SignUpFormComponent from "./SignUpFormComponent";
 
 const Dashboard = () => {
   return (
     <Router>
       <Header />
-      <Route path="/signup" component={() => <SignUpComponent />} />
     </Router>
   );
 };
