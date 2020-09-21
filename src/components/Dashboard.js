@@ -1,24 +1,29 @@
-import React, { useState, useEffect } from 'react';
-/* import * as yup from 'yup';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import React from "react";
+import * as yup from "yup";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import Header from "./Header";
+import SignUpComponent from "./SignUpComponent";
+import Login from "./Login";
+import formSchema from "./formSchema";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
+import TechRentalList from "./TechRentalList";
+import AddNewTech from "./AddNewTech";
+import EditTechItem from "./EditTechItem";
+// import SignUpFormComponent from "./SignUpFormComponent";
 
-import Signup from './SignUp';
-import Login from './Login';
-import formSchema from './formSchema'; */
-import { BrowserRouter as Router, Route, Link, useHistory } from 'react-router-dom';
-/* import PrivateRoute from './PrivateRoute';
-import TechRentalList from './TechRentalList';
-import AddNewTech from './AddNewTech';
-import EditTechItem from './EditTechItem'; */
-import Header from './Header';
+const Dashboard = () => {
+  return (
+    <Router>
+      <Header />
+      <Route path="/signup" component={() => <SignUpComponent />} />
+    </Router>
+  );
+};
 
-const Dashboard = (props) => {
-
-    return (
-        <Router>
-			<Header />
-        </Router>
-    )
-}
-
-export default Dashboard
+export default Dashboard;

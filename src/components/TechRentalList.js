@@ -13,7 +13,7 @@ const TechRentalList = (props) => {
 				// console.log(res)
 				setTechEquipments(res.data);
 			})
-			.catch((err) => console.log('this is the', err));
+			.catch((err) => console.log(err));
 	};
 
     return (

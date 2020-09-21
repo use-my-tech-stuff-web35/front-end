@@ -1,10 +1,8 @@
 import React from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
-import { useHistory } from 'react-router-dom'
 
 const TechRentalCard = (props) => {
     const { tech, getTech } = props;
-    const history = useHistory()
 
     const removeTech = () =>{
         axiosWithAuth()
@@ -17,8 +15,6 @@ const TechRentalCard = (props) => {
     return (
         <div>
         <h1>{tech.techName}</h1>
-        <p>{tech.description}</p>
-        <button onClick={()=>history.push(`/updatetech/${tech.id}`)}>Edit Tech</button>
         <button onClick={()=>removeTech()}>Delete Tech</button>
     </div>
     )
