@@ -14,8 +14,7 @@ import {
 import PrivateRoute from "./PrivateRoute";
 import TechRentalList from "./TechRentalList";
 import AddNewTech from "./AddNewTech";
-import EditTechItem from "./EditTechItem";
-// import SignUpFormComponent from "./SignUpFormComponent";
+import OrderTechItem from "./OrderTechItem";
 
 const Dashboard = () => {
   return (
@@ -23,6 +22,7 @@ const Dashboard = () => {
       <Header />
       <Route path="/signup" component={() => <SignUpComponent />} />
       <Route path="/login" component={() => <Login />} />
+      <Route path="/ordertech" component={() => <OrderTechItem />} />
     </Router>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => { 
+const Header = () => {
   return (
     <React.Fragment>
       <header>
@@ -13,6 +13,9 @@ const Header = () => {
         </Link>
         <Link to="/addtech" className="navbar">
           Add Tech
+        </Link>
+        <Link to="/ordertech" className="navbar">
+          Order Tech Item
         </Link>
         <Link to="/techlist" className="navbar">
           Tech Equipment
