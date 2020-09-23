@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import TechRentalCard from './TechRentalCard'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 
 const initalFormValues = {
@@ -52,6 +54,20 @@ const AddNewTech = () => {
     const [techItems, setTechItems] = useState([])
     const [formValues, setFormValues] = useState(initalFormValues)
 
+    /* const { techEquipments, setTechEquipments} = props; */
+
+    const getTech = () => {
+		axiosWithAuth()
+			.get('/items')
+			.then((res) => {
+				// console.log(res)
+				setTechItems(res.data);
+			})
+			.catch((err) => console.log(err));
+	};
+
+
+    
 
     const formSubmit = (evt) => {
         evt.preventDefault()
@@ -102,11 +118,18 @@ const AddNewTech = () => {
             </form>
             <div>
                 <h2>Here is a list of items already on our website</h2>
-                {techItems.map(item => {
-                    return <div>
+                {/*  {techItems.map(item => {
+                    return <div> 
                         <h2>{item.item}</h2>
-                        </div>
-                })}
+                         </div>
+                })}  */}
+                  <div>
+			{techItems.map((tech) => (
+				<TechRentalCard getTech={getTech} techItems={techItems} setTechItems={setTechItems} key={tech.id} tech={tech} />
+			))}
+			
+		</div>
+                
             </div>
         </StyledDiv>
     )
