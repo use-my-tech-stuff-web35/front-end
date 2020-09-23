@@ -23,6 +23,7 @@ const Dashboard = () => {
       <Route path="/signup" component={() => <SignUpComponent />} />
       <Route path="/login" component={() => <Login />} />
       <Route path="/ordertech" component={() => <OrderTechItem />} />
+      <Route path="/addtech" component={() => <AddNewTech />} />
     </Router>
   );
 };

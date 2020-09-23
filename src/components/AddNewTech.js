@@ -11,7 +11,7 @@ const StyledDiv = styled.div`
 background-image:url('https://images.unsplash.com/7/Top_view.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');
 background-size:cover;
 background-position:center;
-height:1000px;
+height:900px;
 background-repeat: no-repeat;
 input{
     width:15%;
@@ -36,14 +36,26 @@ button {
   font-weight: 700;
   text-decoration: none;
   margin-top:1%;
-}
-button:hover {
+  &:hover {
   background-color: #b3a394;
   color: #102542;
+}
 }
 h1{
     margin:0 auto;
     padding:1%;
+}
+.item-container{
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    & div{
+     width:20%; 
+     border:2px solid black;  
+     padding:.5%;
+     margin:1%;
+
+    }
 }
 `
 
@@ -80,7 +92,6 @@ const AddNewTech = () => {
         axios
           .get("https://used-tech.herokuapp.com/api/items")
           .then((res) => {
-              console.log(res.data)
            setTechItems(res.data)
           })
           .catch();
@@ -102,11 +113,13 @@ const AddNewTech = () => {
             </form>
             <div>
                 <h2>Here is a list of items already on our website</h2>
+                <div className='item-container'>
                 {techItems.map(item => {
-                    return <div>
+                    return <div className='card'>
                         <h2>{item.item}</h2>
                         </div>
                 })}
+                </div>
             </div>
         </StyledDiv>
     )

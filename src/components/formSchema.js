@@ -13,7 +13,7 @@ export default yup.object().shape({
     .string()
     .test(
       "length",
-      "You're password must be 8 characters or more",
-      (value) => value.length >= 8
+      "Your password must be 3 characters or more",
+      (value) => value.length >= 3
     ),
 });
