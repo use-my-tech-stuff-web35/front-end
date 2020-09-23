@@ -19,6 +19,7 @@ justify-content:flex-end;
 font-size:1.5rem;
 width:79%;
 align-items:center;
+margin-right:8%;
 }
 a{
   color:#102542;
@@ -37,7 +38,7 @@ const Header = () => {
         </div>
         <div className='links'>
         <Link to="/login" className="navbar">
-          Log In
+          Sign In
         </Link>
         <Link to="/signup" className="navbar">
           Sign Up

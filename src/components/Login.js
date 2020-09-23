@@ -117,7 +117,7 @@ const Login = () => {
     return (
         <form onSubmit={formSubmit}>
         <StyledDiv>
-            <h1>Login here!</h1>
+            <h1>Sign In</h1>
                 <div>
                 <label><strong>Username:</strong>
                     <input 
