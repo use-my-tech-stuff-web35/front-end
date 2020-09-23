@@ -3,15 +3,13 @@ import styled from "styled-components";
 
 //component styling
 const StyledDiv = styled.div`
-  background-image: url("https://images.unsplash.com/photo-1505424297051-c3ad50b055ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80");
-  background-size: cover;
-  background-position: center;
-  height: 1000px;
-  background-repeat: no-repeat;
   input {
     width: 15%;
     padding: 12px 20px;
     margin: 8px 1%;
+    &::placeholder{
+      font-family: 'Montserrat', sans-serif;
+    }
   }
   button {
     max-width: 292px;
@@ -36,6 +34,10 @@ const StyledDiv = styled.div`
     background-color: #b3a394;
     color: #102542;
   }
+  h1{
+    padding:1%;
+    margin:0 auto;
+  }
 `;
 
 export default function SignUpForm(props) {
@@ -44,7 +46,7 @@ export default function SignUpForm(props) {
   return (
     <StyledDiv>
       <form onSubmit={submit}>
-        <h2>Create Account</h2>
+        <h1>Create Account</h1>
         <label htmlFor="username">
           <strong>Username:</strong>
           <input
@@ -52,6 +54,7 @@ export default function SignUpForm(props) {
             name="username"
             value={formValues.username}
             onChange={change}
+            placeholder='Enter Username'
           />
           {errors.username.length > 0 ? <p>{errors.username}</p> : null}
         </label>
@@ -63,6 +66,7 @@ export default function SignUpForm(props) {
             name="password"
             value={formValues.password}
             onChange={change}
+            placeholder='Enter Password'
           />
           {errors.password.length > 0 ? <p>{errors.password}</p> : null}
         </label>

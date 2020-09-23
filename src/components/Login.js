@@ -18,15 +18,13 @@ const initialFormValues = {
   }; 
  
   const StyledDiv = styled.div`
-  background-image:url('https://images.unsplash.com/photo-1505424297051-c3ad50b055ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80');
-  background-size:cover;
-  background-position:center;
-  height:900px;
-  background-repeat: no-repeat;
   input{
       width:15%;
       padding:12px 20px;
       margin:8px 1%;
+      &::placeholder{
+        font-family: 'Montserrat', sans-serif;
+      }
   }
   button {
     max-width: 292px;
