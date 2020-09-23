@@ -1,29 +1,34 @@
-import React from "react";
-import * as yup from "yup";
+import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Header from "./Header";
 import SignUpComponent from "./SignUpComponent";
 import Login from "./Login";
-import formSchema from "./formSchema";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import TechRentalList from "./TechRentalList";
 import AddNewTech from "./AddNewTech";
 import OrderTechItem from "./OrderTechItem";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+
+    const [techEquipments, setTechEquipments] = useState([]);
+    const history = useHistory();
+
   return (
     <Router>
       <Header />
       <Route path="/signup" component={() => <SignUpComponent />} />
-      <Route path="/login" component={() => <Login />} />
-      <Route path="/ordertech" component={() => <OrderTechItem />} />
-      <Route path="/addtech" component={() => <AddNewTech />} />
+      <Route path="/login" component={() => <Login history={history} />} />
+      <PrivateRoute path="/ordertech" component={() => <OrderTechItem />} />
+      <PrivateRoute
+				path='/addtech'
+				component={() => <AddNewTech history={history} setTechEquipments={setTechEquipments} techEquipments={techEquipments} />}
+			/>
+			{/* <PrivateRoute
+				path='/techlist'
+				component={() => <TechRentalList techEquipments={techEquipments} setTechEquipments={setTechEquipments} />}
+			/> */}
+			
     </Router>
   );
 };

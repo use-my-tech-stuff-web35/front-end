@@ -6,7 +6,17 @@ const TechRentalCard = (props) => {
 
     const removeTech = () =>{
         axiosWithAuth()
-        .delete(`/tech/${tech.id}`)
+        .delete(`/items/${tech.id}`) 
+        .then((res) => {      
+            localStorage.setItem('token', res.data.token);
+          })
+        .catch(err=> console.log(err))
+        getTech()
+    }
+
+    const editTech = () => {
+        axiosWithAuth()
+        .put(`/items/${tech.id}`) 
         .then(res=>console.log(res))
         .catch(err=> console.log(err))
         getTech()
@@ -14,8 +24,9 @@ const TechRentalCard = (props) => {
 
     return (
         <div>
-        <h1>{tech.techName}</h1>
-        <button onClick={()=>removeTech()}>Delete Tech</button>
+        <h1>{tech.item}</h1>
+        <button onClick={()=>removeTech()}>Delete</button>
+        <button onClick={()=>editTech()}>Edit</button>
     </div>
     )
 }
