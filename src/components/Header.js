@@ -17,9 +17,9 @@ const Header = () => {
         <Link to="/ordertech" className="navbar">
           Order Tech Item
         </Link>
-        <Link to="/techlist" className="navbar">
+        {/* <Link to="/techlist" className="navbar">
           Tech Equipment
-        </Link>
+        </Link> */}
       </header>
     </React.Fragment>
   );

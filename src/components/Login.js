@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import formSchema from "./formSchema"
 import * as yup from "yup"
 import styled from 'styled-components'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 
 const initialFormValues = {
@@ -15,7 +16,7 @@ const initialFormValues = {
     username: '',
     password: '',
   }; 
-
+ 
   const StyledDiv = styled.div`
   background-image:url('https://images.unsplash.com/photo-1505424297051-c3ad50b055ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80');
   background-size:cover;
@@ -56,24 +57,31 @@ const initialFormValues = {
   }
   `
 
+
 const Login = () => {
     const [formValues, setFormValues] = useState(initialFormValues)
     const [errors, setErrors] = useState(initialErrors);
     const [disabled, setDisabled] = useState(true);
-
     const newPlace = useHistory()
 
+    const [credentials, setCredentials] = useState({});
+    
 
     const formSubmit = (evt) => {
         evt.preventDefault()
-        const user = {
+       /*  const user = {
           username: formValues.username.trim(),
           password: formValues.password.trim(),
         }
         axios.post('https://used-tech.herokuapp.com/api/auth/login', user)
         .then(res => {
-          newPlace.push("/techlist")
+          newPlace.push("/addtech")
           setFormValues(initialFormValues)
+        })  */
+        axiosWithAuth().post('/auth/login', credentials)
+        .then(res => {
+          localStorage.setItem('token', res.data.token);
+          newPlace.push('/addtech');
         })
         .catch(err => {
           console.log(err)
@@ -84,6 +92,10 @@ const Login = () => {
         const { name, value }= evt.target
         validate(name, value);
         setFormValues({ ...formValues, [name]: value })
+        setCredentials( {
+          ...credentials,
+          [evt.target.name]: evt.target.value,
+        })
       }
 
       const validate = (name, value) => {
@@ -103,8 +115,6 @@ const Login = () => {
           setDisabled(!valid);
         });
       }, [formValues]);
-
-
 
     return (
         <form onSubmit={formSubmit}>
@@ -127,7 +137,7 @@ const Login = () => {
                     value={formValues.password}
                     onChange={onChange}
                     name='password'
-                    type='text'
+                    type='password'
                     placeholder='Enter Password'
                     />
                 </label>
@@ -143,3 +153,6 @@ const Login = () => {
 }
 
 export default Login
+ 
+
+ 

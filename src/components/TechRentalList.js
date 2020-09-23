@@ -8,7 +8,7 @@ const TechRentalList = (props) => {
 
     const getTech = () => {
 		axiosWithAuth()
-			.get('/tech')
+			.get('/items')
 			.then((res) => {
 				// console.log(res)
 				setTechEquipments(res.data);
