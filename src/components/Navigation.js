@@ -27,7 +27,6 @@ a{
   margin:1%;
   text-decoration:none;
 }
-
 `
 
 const Navigation = () => {
@@ -44,10 +43,8 @@ const Navigation = () => {
         <div className='links'>
         <Link to='/items' >Home</Link>
         <Link to="/items/new" >Add Tech</Link>
-        <Link to='/' onClick={() => submitLogout()}>
-          Logout
-                        </Link>
-                        </div>
+        <Link to='/' onClick={() => submitLogout()}> Logout  </Link>
+        </div>          
       </StyledHeader>
     </div>
   )

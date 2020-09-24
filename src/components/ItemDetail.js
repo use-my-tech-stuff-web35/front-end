@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import Navigation from './Navigation'
 
-
 const FormContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -45,15 +44,11 @@ button {
     margin: 0 0 1rem 0;
     padding: 0;
     }
-  
-
 `
 const CardBody = styled.div`
-
     width: 500px; 
     margin: auto;
     align-content: center;
- 
 `
 
 class ItemDetail extends React.Component {
@@ -71,7 +66,6 @@ class ItemDetail extends React.Component {
             this.props.history.push('/items');
         })
     } 
-
     render() {
         return (
             <div>

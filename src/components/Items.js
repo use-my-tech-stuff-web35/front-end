@@ -7,7 +7,7 @@ import Navigation from './Navigation';
 
 const ItemsContainer = styled.div`
     margin: 7rem auto 0 auto;
-    width: 100%;
+    width: 90%;
     padding-top: 2rem;
     display: flex;
     flex-wrap: wrap;
@@ -44,5 +44,6 @@ export default
         { fetchItems }
     )(Items);
 
+    
 
 

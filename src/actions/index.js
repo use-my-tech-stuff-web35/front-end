@@ -3,7 +3,6 @@ import axios from 'axios';
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
-
 export const login = creds => dispatch => {
     dispatch ({type:LOGIN_START});
     return axios.post('https://used-tech.herokuapp.com/api/auth/login', creds).then(res => {

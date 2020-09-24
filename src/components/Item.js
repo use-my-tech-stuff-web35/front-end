@@ -2,14 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-
-
 const Card = styled.div`
     margin: 2rem;
     display: flex;
     align-items: center;
-
-
     h5 {
     font-size: 2rem;
     margin: 0 0 1rem 0;
@@ -40,11 +36,10 @@ const Card = styled.div`
     color: #102542;
   }
 `
-
+ 
 const Item = props => {
     
     return (
-        
         <Card >
            <div>
                 <h5>{props.item.item}</h5>
@@ -53,8 +48,6 @@ const Item = props => {
                 </Link>
             </div>
         </Card>
-      
-        
     )
 }
 

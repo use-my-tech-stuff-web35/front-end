@@ -56,7 +56,7 @@ const StyledDiv = styled.div`
       justify-content:center;
   }
 `;
-
+ 
 export default function SignUpForm(props) {
   const { formValues, change, submit, errors, buttonDisabled } = props;
 
