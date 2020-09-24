@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import TechRentalCard from './TechRentalCard'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
-
 const initalFormValues = {
     item: '',
 }
@@ -49,12 +48,9 @@ h1{
 }
 `
 
-
 const AddNewTech = () => {
     const [techItems, setTechItems] = useState([])
     const [formValues, setFormValues] = useState(initalFormValues)
-
-    /* const { techEquipments, setTechEquipments} = props; */
 
     const getTech = () => {
 		axiosWithAuth()
@@ -65,9 +61,6 @@ const AddNewTech = () => {
 			})
 			.catch((err) => console.log(err));
 	};
-
-
-    
 
     const formSubmit = (evt) => {
         evt.preventDefault()
@@ -124,9 +117,9 @@ const AddNewTech = () => {
                          </div>
                 })}  */}
                   <div>
-			{techItems.map((tech) => (
+			{/* {techItems.map((tech) => (
 				<TechRentalCard getTech={getTech} techItems={techItems} setTechItems={setTechItems} key={tech.id} tech={tech} />
-			))}
+			))} */}
 			
 		</div>
                 
