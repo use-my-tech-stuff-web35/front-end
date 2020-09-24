@@ -6,6 +6,7 @@ import * as yup from "yup"
 import styled from 'styled-components'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 import '../App.css'
+import Navigation from './Navigation'
 
 const initialFormValues = {
     username: '',
@@ -128,6 +129,8 @@ const Login = () => {
     }, [formValues]);
 
     return (
+        <div>
+            <Navigation />
         <form className='form' onSubmit={formSubmit}>
             <StyledDiv>
                 <h1>Sign In Here!</h1>
@@ -164,6 +167,7 @@ const Login = () => {
                 </Link>
             </StyledDiv>
         </form>
+        </div>
     )
 }
 

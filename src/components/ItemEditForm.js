@@ -9,6 +9,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-content: center;
+align-items: center;
 min-height: 800px;
 width: 600px;
 margin: auto;
@@ -23,9 +24,8 @@ input {
   font-size: 18px;
   outline: none;
 }
-`
 
-const Button = styled.button`
+button {
   max-width: 292px;
   width: 150px;
   margin-bottom: 20px;
@@ -43,6 +43,7 @@ const Button = styled.button`
   font-weight: 700;
   text-decoration: none;
   margin-top:1%;
+}
 `
 
 
@@ -85,8 +86,9 @@ class ItemEditForm extends React.Component {
         return (
             <div>
                 <Navigation />
-                <h1>Edit Item</h1>
+               
                 <Form onSubmit={this.updateItem}>
+                <h1>Edit Item</h1>
                     <label>
                         Title
                         <input
@@ -96,7 +98,7 @@ class ItemEditForm extends React.Component {
                             onChange={this.handleChange}
                         />
                     </label>
-                    <Button onClick={this.updateItem}>{this.props.editingItem ? "Loading" : "Edit Item"}</Button>
+                    <button onClick={this.updateItem}>{this.props.editingItem ? "Loading" : "Edit Item"}</button>
                 </Form>
             </div>
         )
