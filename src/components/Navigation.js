@@ -31,6 +31,7 @@ a{
 `
 
 const Navigation = () => {
+
   const submitLogout = () => {
     localStorage.removeItem('user');
   }

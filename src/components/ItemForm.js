@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+//import { axiosWithAuth } from '../utils/axiosWithAuth'
 import Navigation from './Navigation'; 
 
 
@@ -63,16 +63,14 @@ const ItemForm = () => {
     const [techItems, setTechItems] = useState([])
     const [formValues, setFormValues] = useState(initalFormValues)
 
-    const getTech = () => {
+/*     const getTech = () => {
 		axiosWithAuth()
 			.get('/items')
 			.then((res) => {
-				// console.log(res)
 				setTechItems(res.data);
 			})
 			.catch((err) => console.log(err));
-	};
-
+	}; */
 
     const formSubmit = (evt) => {
         evt.preventDefault()
@@ -81,7 +79,6 @@ const ItemForm = () => {
             item: formValues.item.trim(),
             user_id: 1,
         }
-
 
         axios.post('https://used-tech.herokuapp.com/api/items', item)
             .then(res => {
@@ -136,7 +133,6 @@ const ItemForm = () => {
 			))}
 			
 		</div> */}
-                
             </div>
         </StyledDiv>
         </div>
