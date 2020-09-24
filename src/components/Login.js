@@ -5,7 +5,7 @@ import formSchema from "./formSchema"
 import * as yup from "yup"
 import styled from 'styled-components'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
-
+import '../App.css'
 
 const initialFormValues = {
     username:'',
@@ -19,7 +19,7 @@ const initialFormValues = {
  
   const StyledDiv = styled.div`
   input{
-      width:15%;
+      width:80%;
       padding:12px 20px;
       margin:8px 1%;
       &::placeholder{
@@ -29,6 +29,7 @@ const initialFormValues = {
   button {
     max-width: 292px;
     width: 200px;
+    margin:0 0.5%;
     margin-bottom: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -52,6 +53,21 @@ const initialFormValues = {
   h1{
       padding:1%;
       margin:0 auto;
+  }
+  .wrapper{
+      font-size:1.5rem;
+      display:flex;
+      justify-content:space-around;
+      margin:0 1%;
+      flex-direction:column;
+  }
+  .wrapper-two{
+      display:flex;
+      flex-direction:column;
+  }
+  .container{
+      display:flex;
+      justify-content:center;
   }
   `
 
@@ -112,19 +128,20 @@ const Login = () => {
         <form onSubmit={formSubmit}>
         <StyledDiv>
             <h1>Sign In Here!</h1>
-                <div>
-                <label><strong>Username:</strong>
-                    <input 
+            <div className='container'>
+                <div className='wrapper'>
+                <label><strong>Username:</strong></label>
+                <label><strong>Password:</strong></label>
+                    
+                </div>
+                <div className='wrapper-two'>
+                <input 
                     value={formValues.username}
                     onChange={onChange}
                     name='username'
                     type='text'
                     placeholder='Enter Username'
                     />
-                </label>
-                </div>
-                <div>
-                <label><strong>Password:</strong>
                     <input 
                     value={formValues.password}
                     onChange={onChange}
@@ -132,7 +149,7 @@ const Login = () => {
                     type='password'
                     placeholder='Enter Password'
                     />
-                </label>
+                </div>
                 </div>
                 <div>
                 {errors.username}
