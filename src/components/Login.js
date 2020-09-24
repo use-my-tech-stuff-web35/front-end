@@ -1,4 +1,4 @@
- import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useHistory, Link } from "react-router-dom"
 import formSchema from "./formSchema"
@@ -8,16 +8,19 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 import '../App.css'
 
 const initialFormValues = {
-    username:'',
-    password:'',
-  }
-
-  const initialErrors = {
     username: '',
     password: '',
-  }; 
- 
-  const StyledDiv = styled.div`
+}
+
+const initialErrors = {
+    username: '',
+    password: '',
+};
+
+const StyledDiv = styled.div`
+        height:auto;
+        padding-top:15rem;
+
   input{
       width:80%;
       padding:12px 20px;
@@ -77,97 +80,97 @@ const Login = () => {
     const [errors, setErrors] = useState(initialErrors);
     const [disabled, setDisabled] = useState(true);
     const newPlace = useHistory();
-    
+
 
     const formSubmit = (evt) => {
         evt.preventDefault()
-         const user = {
-          username: formValues.username.trim(),
-          password: formValues.password.trim(),
-        } 
+        const user = {
+            username: formValues.username.trim(),
+            password: formValues.password.trim(),
+        }
         axios.post('https://used-tech.herokuapp.com/api/auth/login', user)
-        .then(res => {
-          newPlace.push("/items")
-          setFormValues(initialFormValues)
-        })  
-         axiosWithAuth().post('/auth/login', user)
-        .then(res => {
-          localStorage.setItem('token', res.data.token);
-          newPlace.push('/items');
-        })
-        .catch(err => {
-          console.log(err)
-        })
-      }
+            .then(res => {
+                newPlace.push("/items")
+                setFormValues(initialFormValues)
+            })
+        axiosWithAuth().post('/auth/login', user)
+            .then(res => {
+                localStorage.setItem('token', res.data.token);
+                newPlace.push('/items');
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
-      const onChange = (evt) => {
-        const { name, value }= evt.target
-        validate(name, value); 
-         setFormValues({ ...formValues, [name]: value }) 
-       }
+    const onChange = (evt) => {
+        const { name, value } = evt.target
+        validate(name, value);
+        setFormValues({ ...formValues, [name]: value })
+    }
 
-      const validate = (name, value) => {
+    const validate = (name, value) => {
         yup
-          .reach(formSchema, name)
-          .validate(value)
-          .then((valid) => {
-            setErrors({ ...errors, [name]: "" });
-          })
-          .catch((error) => {
-            setErrors({ ...errors, [name]: error.errors[0] });
-          });
-      };
+            .reach(formSchema, name)
+            .validate(value)
+            .then((valid) => {
+                setErrors({ ...errors, [name]: "" });
+            })
+            .catch((error) => {
+                setErrors({ ...errors, [name]: error.errors[0] });
+            });
+    };
 
-      useEffect(() => {
+    useEffect(() => {
         formSchema.isValid(formValues).then((valid) => {
-          setDisabled(!valid);
+            setDisabled(!valid);
         });
-      }, [formValues]);
+    }, [formValues]);
 
     return (
-        <form onSubmit={formSubmit}>
-        <StyledDiv>
-            <h1>Sign In Here!</h1>
-            <div className='container'>
-                <div className='wrapper'>
-                <label><strong>Username:</strong></label>
-                <label><strong>Password:</strong></label>
-                    
-                </div>
-                <div className='wrapper-two'>
-                <input 
-                    value={formValues.username}
-                    onChange={onChange}
-                    name='username'
-                    type='text'
-                    placeholder='Enter Username'
-                    />
-                    <input 
-                    value={formValues.password}
-                    onChange={onChange}
-                    name='password'
-                    type='password'
-                    placeholder='Enter Password'
-                    />
-                </div>
+        <form className='form' onSubmit={formSubmit}>
+            <StyledDiv>
+                <h1>Sign In Here!</h1>
+                <div className='container'>
+                    <div className='wrapper'>
+                        <label><strong>Username:</strong></label>
+                        <label><strong>Password:</strong></label>
+
+                    </div>
+                    <div className='wrapper-two'>
+                        <input
+                            value={formValues.username}
+                            onChange={onChange}
+                            name='username'
+                            type='text'
+                            placeholder='Enter Username'
+                        />
+                        <input
+                            value={formValues.password}
+                            onChange={onChange}
+                            name='password'
+                            type='password'
+                            placeholder='Enter Password'
+                        />
+                    </div>
                 </div>
                 <div>
-                {errors.username}
-                {errors.password}
+                    {errors.username}
+                    {errors.password}
                 </div>
                 <button id='loginBtn' disabled={disabled}>Sign In</button>
                 <Link to="/register">
-                <button>Sign Up</button>
-            </Link>
-        </StyledDiv>
+                    <button>Sign Up</button>
+                </Link>
+            </StyledDiv>
         </form>
     )
 }
 
-export default Login 
- 
+export default Login
 
-/*  
+
+/*
 
 
 import React from 'react';
@@ -185,9 +188,9 @@ class Login extends React.Component {
     }
   };
 
-  
+
   handleChange = e => {
-    
+
     this.setState({
       credentials: {
         ...this.state.credentials,
@@ -202,7 +205,7 @@ class Login extends React.Component {
     .then(() => this.props.history.push('/items'))
   };
 
- 
+
 
   render() {
     return (
@@ -210,7 +213,7 @@ class Login extends React.Component {
         <Form onSubmit={this.login}>
             <label>
                 Username
-            
+
                 <input
                     type="text"
                     name="username"
@@ -228,12 +231,12 @@ class Login extends React.Component {
                 />
             </label>
             <button>{this.props.loggingIn ? "Loading" : "Login"}</button>
-            
+
 
             <Link to="/register">
                 <button>Register</button>
             </Link>
-            
+
         </Form>
       </FormContainer>
     );
@@ -244,7 +247,7 @@ const mapStateToProps = ({ error, loggingIn }) => ({
     error,
     loggingIn
   });
-  
+
   export default connect(
     mapStateToProps,
     { login }

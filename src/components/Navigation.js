@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import logo from '../utils/Untitled-2.png'
 
 
 const StyledHeader = styled.header`
@@ -31,22 +31,25 @@ a{
 `
 
 const Navigation = () => {
-    const submitLogout = () => {
-        localStorage.removeItem('user');
-    }
-    return (
-        <div>           
-                <StyledHeader>
-                    
-                        <Link to='/items' >Home</Link>
-                        <Link to="/items/new" >Add Tech</Link>
-                        <Link to='/' onClick={() => submitLogout()}>
-                            Logout
+  const submitLogout = () => {
+    localStorage.removeItem('user');
+  }
+  return (
+    <div>
+      <StyledHeader>
+        <div className='img-div'>
+          <img src={logo} alt='logo' />
+        </div>
+        <div className='links'>
+        <Link to='/items' >Home</Link>
+        <Link to="/items/new" >Add Tech</Link>
+        <Link to='/' onClick={() => submitLogout()}>
+          Logout
                         </Link>
-                   
-                </StyledHeader>
-         </div>
-    )
+                        </div>
+      </StyledHeader>
+    </div>
+  )
 }
 
 export default Navigation;
