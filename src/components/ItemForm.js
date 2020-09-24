@@ -4,14 +4,12 @@ import styled from 'styled-components'
 //import { axiosWithAuth } from '../utils/axiosWithAuth'
 import Navigation from './Navigation'; 
 
-
 const initalFormValues = {
     item: '',
     price: '',
 }
 
 const StyledDiv = styled.div`
-
 
 form {
     display: flex;
@@ -51,7 +49,9 @@ button {
   background-color: #b3a394;
   color: #102542;
 }
+
 }
+
 h1{
     margin:0 auto;
     padding:1%;
@@ -62,7 +62,6 @@ h1{
 const ItemForm = () => {
     const [techItems, setTechItems] = useState([])
     const [formValues, setFormValues] = useState(initalFormValues)
-
 /*     const getTech = () => {
 		axiosWithAuth()
 			.get('/items')
@@ -104,12 +103,10 @@ const ItemForm = () => {
           .catch();
       }, []);
 
-
     return (
         <div>
         <Navigation />
         <StyledDiv>
-           
             <form onSubmit={formSubmit}>
             <h1>Add new tech</h1>
                 <input
@@ -131,8 +128,7 @@ const ItemForm = () => {
             {/*       <div>
 			{techItems.map((tech) => (
 				<TechRentalCard getTech={getTech} techItems={techItems} setTechItems={setTechItems} key={tech.id} tech={tech} />
-			))}
-			
+			))}	
 		</div> */}
             </div>
         </StyledDiv>

@@ -1,5 +1,4 @@
 import * as yup from "yup";
-
 //schema for SignUpForm
 export default yup.object().shape({
   username: yup

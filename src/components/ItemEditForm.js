@@ -10,7 +10,7 @@ flex-direction: column;
 justify-content: center;
 align-content: center;
 align-items: center;
-min-height: 800px;
+min-height: 50vh;
 width: 600px;
 margin: auto;
 input {
@@ -46,7 +46,6 @@ button {
 }
 `
 
-
 class ItemEditForm extends React.Component {
     state = {
         item: this.props.item,
@@ -71,7 +70,6 @@ class ItemEditForm extends React.Component {
             }
         })
     };
-
 
     updateItem = (e, item) => {
         e.preventDefault();
@@ -109,7 +107,6 @@ const mapStateToProps = ({ gettingDetail, item, editingItem }) => ({
     gettingDetail,
     editingItem,
     item,
-   
 });
 
 export default 

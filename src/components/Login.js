@@ -75,13 +75,11 @@ const StyledDiv = styled.div`
   }
   `
 
-
 const Login = () => {
     const [formValues, setFormValues] = useState(initialFormValues)
     const [errors, setErrors] = useState(initialErrors);
     const [disabled, setDisabled] = useState(true);
     const newPlace = useHistory();
-
 
     const formSubmit = (evt) => {
         evt.preventDefault()
