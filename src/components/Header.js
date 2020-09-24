@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import logo from '../utils/Untitled-2.png'
@@ -52,10 +52,11 @@ const Header = () => {
         </div>
         {/* <Link to="/techlist" className="navbar">
           Tech Equipment
-        </Link> */}
-      </StyledHeader>
+        </Link> *///}
+    /*   </StyledHeader>
     </React.Fragment>
   );
 };
 
 export default Header;
+ */ 

@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import SignUpForm from "./SingUpForm"
@@ -94,4 +94,4 @@ export default function SignUpFormComponent() {
       />
     </div>
   );
-}
+} */

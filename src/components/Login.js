@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useHistory, Link } from "react-router-dom"
 import formSchema from "./formSchema"
@@ -60,26 +60,24 @@ const Login = () => {
     const [formValues, setFormValues] = useState(initialFormValues)
     const [errors, setErrors] = useState(initialErrors);
     const [disabled, setDisabled] = useState(true);
-    const newPlace = useHistory()
-
-    const [credentials, setCredentials] = useState({});
+    const newPlace = useHistory();
     
 
     const formSubmit = (evt) => {
         evt.preventDefault()
-       /*  const user = {
+         const user = {
           username: formValues.username.trim(),
           password: formValues.password.trim(),
-        }
+        } 
         axios.post('https://used-tech.herokuapp.com/api/auth/login', user)
         .then(res => {
-          newPlace.push("/addtech")
+          newPlace.push("/items")
           setFormValues(initialFormValues)
-        })  */
-        axiosWithAuth().post('/auth/login', credentials)
+        })  
+         axiosWithAuth().post('/auth/login', user)
         .then(res => {
           localStorage.setItem('token', res.data.token);
-          newPlace.push('/addtech');
+          newPlace.push('/items');
         })
         .catch(err => {
           console.log(err)
@@ -88,13 +86,9 @@ const Login = () => {
 
       const onChange = (evt) => {
         const { name, value }= evt.target
-        validate(name, value);
-        setFormValues({ ...formValues, [name]: value })
-        setCredentials( {
-          ...credentials,
-          [evt.target.name]: evt.target.value,
-        })
-      }
+        validate(name, value); 
+         setFormValues({ ...formValues, [name]: value }) 
+       }
 
       const validate = (name, value) => {
         yup
@@ -117,7 +111,7 @@ const Login = () => {
     return (
         <form onSubmit={formSubmit}>
         <StyledDiv>
-            <h1>Sign In</h1>
+            <h1>Sign In Here!</h1>
                 <div>
                 <label><strong>Username:</strong>
                     <input 
@@ -144,13 +138,137 @@ const Login = () => {
                 {errors.username}
                 {errors.password}
                 </div>
-                <button id='loginBtn' disabled={disabled}>Login</button>
+                <button id='loginBtn' disabled={disabled}>Sign In</button>
+                <Link to="/register">
+                <button>Sign Up</button>
+            </Link>
         </StyledDiv>
         </form>
     )
 }
 
-export default Login
+export default Login 
  
 
+/*  
+
+
+import React from 'react';
+import {connect} from 'react-redux';
+import {login} from '../actions';
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+
+
+class Login extends React.Component {
+  state = {
+    credentials: {
+      username: "",
+      password: ""
+    }
+  };
+
+  
+  handleChange = e => {
+    
+    this.setState({
+      credentials: {
+        ...this.state.credentials,
+        [e.target.name]: e.target.value
+      }
+    });
+  };
+
+  login = e => {
+    e.preventDefault();
+    this.props.login(this.state.credentials)
+    .then(() => this.props.history.push('/items'))
+  };
+
  
+
+  render() {
+    return (
+      <FormContainer>
+        <Form onSubmit={this.login}>
+            <label>
+                Username
+            
+                <input
+                    type="text"
+                    name="username"
+                    value={this.state.credentials.username}
+                    onChange={this.handleChange}
+                />
+            </label>
+            <label>
+                Password
+                <input
+                    type="password"
+                    name="password"
+                    value={this.state.credentials.password}
+                    onChange={this.handleChange}
+                />
+            </label>
+            <button>{this.props.loggingIn ? "Loading" : "Login"}</button>
+            
+
+            <Link to="/register">
+                <button>Register</button>
+            </Link>
+            
+        </Form>
+      </FormContainer>
+    );
+  }
+}
+
+const mapStateToProps = ({ error, loggingIn }) => ({
+    error,
+    loggingIn
+  });
+  
+  export default connect(
+    mapStateToProps,
+    { login }
+  )(Login);
+
+  const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 800px;
+  width: 400px;
+  margin: auto;
+  p {
+    text-align: center;
+  }
+`
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  input {
+    width: 380px;
+    height: 50px;
+    margin: 10px 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    outline: none;
+  }
+  button {
+    height: 50px;
+    width: 380px;
+    margin: 10px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    background-color: blueviolet;
+    cursor: pointer;
+  }
+` */

@@ -1,7 +1,9 @@
-/* import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
+import Navigation from './Navigation'; 
+
 
 const initalFormValues = {
     item: '',
@@ -57,7 +59,7 @@ h1{
 }
 `
 
-const AddNewTech = () => {
+const ItemForm = () => {
     const [techItems, setTechItems] = useState([])
     const [formValues, setFormValues] = useState(initalFormValues)
 
@@ -70,6 +72,7 @@ const AddNewTech = () => {
 			})
 			.catch((err) => console.log(err));
 	};
+
 
     const formSubmit = (evt) => {
         evt.preventDefault()
@@ -98,6 +101,7 @@ const AddNewTech = () => {
         axios
           .get("https://used-tech.herokuapp.com/api/items")
           .then((res) => {
+              console.log(res.data)
            setTechItems(res.data)
           })
           .catch();
@@ -105,6 +109,8 @@ const AddNewTech = () => {
 
 
     return (
+        <div>
+        <Navigation />
         <StyledDiv>
             <h1>Add new tech</h1>
             <form onSubmit={formSubmit}>
@@ -118,23 +124,23 @@ const AddNewTech = () => {
                 <button>submit</button>
             </form>
             <div>
-                <h2>Here is a list of items already on our website</h2>
-                {/*  {techItems.map(item => {
+          {/*       <h2>Here is a list of items already on our website</h2>
+                  {techItems.map(item => {
                     return <div> 
                         <h2>{item.item}</h2>
                          </div>
-                })}  }
-              //    <div>
-			{/* {techItems.map((tech) => (
+                })}   */}
+            {/*       <div>
+			{techItems.map((tech) => (
 				<TechRentalCard getTech={getTech} techItems={techItems} setTechItems={setTechItems} key={tech.id} tech={tech} />
-			))} }
-	/* 		
-		</div>
+			))}
+			
+		</div> */}
                 
             </div>
         </StyledDiv>
+        </div>
     )
 }
 
-export default AddNewTech
-  */
+export default ItemForm
