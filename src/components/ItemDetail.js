@@ -5,6 +5,57 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import Navigation from './Navigation'
 
+
+const FormContainer = styled.div`
+display: flex;
+flex-direction: column;
+height: 60vh;
+justify-content: center;
+
+button {
+    max-width: 292px;
+    width: 200px;
+    margin:0 0.5%;
+    margin-bottom: 2rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: #102542;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+    color: #f87060;
+    font-size: 18px;
+    line-height: 160%;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top:1%;
+  }
+  button:hover {
+    background-color: #b3a394;
+    color: #102542;
+  }
+  h3 {
+      font-size: 3rem;
+      margin: 0 0 1rem 0;
+  }
+  h5 {
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    }
+  
+
+`
+const CardBody = styled.div`
+
+    width: 500px; 
+    margin: auto;
+    align-content: center;
+ 
+`
+
 class ItemDetail extends React.Component {
     state = {
         deletingItem: null,
@@ -29,7 +80,7 @@ class ItemDetail extends React.Component {
                     <div>
                         <div >
                             <CardBody>
-                                <h5>{this.props.item.item}</h5>
+                                <h3>{this.props.item.item}</h3>
                                 <Link to={`/items/${this.props.item.id}/edit`}>
                                     <button >Edit</button>
                                 </Link>
@@ -42,7 +93,7 @@ class ItemDetail extends React.Component {
                                                
                                             </div>
                                             <div>
-                                                Would you like to submit a rental request for this item?
+                                               <p> Would you like to submit a rental request for this item?</p>
                                             </div>
                                             <button>Request Rental</button>
                                         </div>
@@ -69,19 +120,3 @@ export default
         { itemDetail, deleteItem }
     )(ItemDetail);
 
-const FormContainer = styled.div`
-    max-width: 500px;
-    justify-content: space-around;
-    align-content: center;
-    height: 700px;
-    margin: auto;
-    margin-top: 100px;
-    align-content: center;
-`
-const CardBody = styled.div`
-
-    width: 500px; 
-    margin: auto;
-    align-content: center;
- 
-`

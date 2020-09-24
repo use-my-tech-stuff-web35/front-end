@@ -7,9 +7,20 @@ import Navigation from './Navigation';
 
 const initalFormValues = {
     item: '',
+    price: '',
 }
 
 const StyledDiv = styled.div`
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60vh;
+    justify-content: center;
+}
+
 input{
     width:15%;
     padding:12px 20px;
@@ -45,18 +56,7 @@ h1{
     margin:0 auto;
     padding:1%;
 }
-.item-container{
-    display:flex;
-    justify-content:space-evenly;
-    flex-wrap:wrap;
-    & div{
-     width:20%; 
-     border:2px solid black;  
-     padding:.5%;
-     margin:1%;
 
-    }
-}
 `
 
 const ItemForm = () => {
@@ -109,8 +109,9 @@ const ItemForm = () => {
         <div>
         <Navigation />
         <StyledDiv>
-            <h1>Add new tech</h1>
+           
             <form onSubmit={formSubmit}>
+            <h1>Add new tech</h1>
                 <input
                     name='item'
                     type='text'

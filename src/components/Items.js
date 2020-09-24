@@ -6,9 +6,12 @@ import styled from 'styled-components';
 import Navigation from './Navigation';
 
 const ItemsContainer = styled.div`
-    margin: 0 auto;
+    margin: 7rem auto 0 auto;
     width: 100%;
     padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     
 `
 
@@ -21,7 +24,7 @@ class Items extends React.Component {
         return (
             <div>
                 <Navigation />
-                <ItemsContainer className="card-deck">
+                <ItemsContainer>
                     {this.props.items.map(item =>
                         <Item key={item.id} item={item} />)}
                 </ItemsContainer>
