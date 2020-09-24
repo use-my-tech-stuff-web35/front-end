@@ -1,18 +1,3 @@
-/* import React from 'react';
-import './App.css';
-import Dashboard from './components/Dashboard'
-
-function App() {
-  return (
-    <div className="App">
-    <Dashboard />
-    </div>
-  );
-}
-
-export default App;
- */
-
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Login from './components/Login';
@@ -26,7 +11,7 @@ import {Switch} from 'react-router';
 import './App.css';
 
 function App() {
-  return (
+  return ( 
     <Router>
       <div className="App">
         <Switch>

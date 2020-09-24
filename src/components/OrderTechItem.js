@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { act } from "react-dom/test-utils";
 import styled from "styled-components";
 
 //component styling

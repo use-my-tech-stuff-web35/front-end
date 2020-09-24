@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-
+import logo from '../utils/Untitled-2.png'
 
 
 const StyledHeader = styled.header`
@@ -37,13 +37,14 @@ const Navigation = () => {
     return (
         <div>           
                 <StyledHeader>
-                    
-                        <Link to='/items' >Home</Link>
-                        <Link to="/items/new" >Add Tech</Link>
-                        <Link to='/' onClick={() => submitLogout()}>
+                <div className='img-div'>
+          <img src={logo} alt='logo' />
+        </div>
+                        <Link to='/items' className="navbar" >Home</Link>
+                        <Link to="/items/new" className="navbar" >Add Tech</Link>
+                        <Link to='/' className="navbar" onClick={() => submitLogout()}>
                             Logout
                         </Link>
-                   
                 </StyledHeader>
          </div>
     )
