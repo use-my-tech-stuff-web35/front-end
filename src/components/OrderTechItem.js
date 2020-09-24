@@ -5,15 +5,14 @@ import styled from "styled-components";
 
 //component styling
 const StyledDiv = styled.div`
-  background-image: url("https://images.unsplash.com/photo-1505424297051-c3ad50b055ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80");
-  background-size: cover;
-  background-position: center;
-  height: 1000px;
-  background-repeat: no-repeat;
   select {
     width: 15%;
     padding: 12px 20px;
     margin: 8px 1%;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .dropdown-content{
+    font-family: 'Montserrat', sans-serif;
   }
   button {
     max-width: 292px;
@@ -84,9 +83,10 @@ const OrderTechItem = () => {
           <strong>Choose an item:</strong>
         </label>
         <select name="choice" onChange={onChange}>
+          <option className='dropdown-content'>--Select--</option>
           {formValues &&
             formValues.dropdown.map((item) => {
-              return <option value={item.id}>{item.item}</option>;
+              return <option className='dropdown-content' value={item.id}>{item.item}</option>;
             })}
         </select>
         <button>Submit</button>

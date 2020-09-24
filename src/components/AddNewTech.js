@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+/* import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import TechRentalCard from './TechRentalCard'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 const initalFormValues = {
@@ -9,15 +8,13 @@ const initalFormValues = {
 }
 
 const StyledDiv = styled.div`
-background-image:url('https://images.unsplash.com/7/Top_view.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');
-background-size:cover;
-background-position:center;
-height:1000px;
-background-repeat: no-repeat;
 input{
     width:15%;
     padding:12px 20px;
     margin:8px 1%;
+    &::placeholder{
+        font-family: 'Montserrat', sans-serif;
+    }
 }
 button {
   max-width: 292px;
@@ -37,14 +34,26 @@ button {
   font-weight: 700;
   text-decoration: none;
   margin-top:1%;
-}
-button:hover {
+  &:hover {
   background-color: #b3a394;
   color: #102542;
+}
 }
 h1{
     margin:0 auto;
     padding:1%;
+}
+.item-container{
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    & div{
+     width:20%; 
+     border:2px solid black;  
+     padding:.5%;
+     margin:1%;
+
+    }
 }
 `
 
@@ -89,7 +98,6 @@ const AddNewTech = () => {
         axios
           .get("https://used-tech.herokuapp.com/api/items")
           .then((res) => {
-              console.log(res.data)
            setTechItems(res.data)
           })
           .catch();
@@ -115,12 +123,12 @@ const AddNewTech = () => {
                     return <div> 
                         <h2>{item.item}</h2>
                          </div>
-                })}  */}
-                  <div>
+                })}  }
+              //    <div>
 			{/* {techItems.map((tech) => (
 				<TechRentalCard getTech={getTech} techItems={techItems} setTechItems={setTechItems} key={tech.id} tech={tech} />
-			))} */}
-			
+			))} }
+	/* 		
 		</div>
                 
             </div>
@@ -129,3 +137,4 @@ const AddNewTech = () => {
 }
 
 export default AddNewTech
+  */

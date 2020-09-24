@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import Header from "./Header";
 import SignUpComponent from "./SignUpComponent";
 import Login from "./Login";
@@ -8,7 +8,6 @@ import AddNewTech from "./AddNewTech";
 import OrderTechItem from "./OrderTechItem";
 
 const Dashboard = (props) => {
-
     const [techEquipments, setTechEquipments] = useState([]);
     const history = useHistory();
 
@@ -25,10 +24,10 @@ const Dashboard = (props) => {
 			{/* <PrivateRoute
 				path='/techlist'
 				component={() => <TechRentalList techEquipments={techEquipments} setTechEquipments={setTechEquipments} />}
-			/> */}
+			/> */ // }
 			
-    </Router>
-  );
-};
+  //  </Router>
+//  );
+// };
 
-export default Dashboard;
+// export default Dashboard; */

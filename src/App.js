@@ -13,7 +13,6 @@ function App() {
 export default App;
  */
 
-
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Login from './components/Login';
@@ -24,7 +23,6 @@ import Items from './components/Items';
 import ItemDetail from './components/ItemDetail';
 import ItemEditForm from './components/ItemEditForm';
 import {Switch} from 'react-router';
-
 import './App.css';
 
 function App() {

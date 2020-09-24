@@ -18,15 +18,13 @@ const initialFormValues = {
   }; 
  
   const StyledDiv = styled.div`
-  background-image:url('https://images.unsplash.com/photo-1505424297051-c3ad50b055ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80');
-  background-size:cover;
-  background-position:center;
-  height:1000px;
-  background-repeat: no-repeat;
   input{
       width:15%;
       padding:12px 20px;
       margin:8px 1%;
+      &::placeholder{
+        font-family: 'Montserrat', sans-serif;
+      }
   }
   button {
     max-width: 292px;
@@ -62,9 +60,7 @@ const Login = () => {
     const [formValues, setFormValues] = useState(initialFormValues)
     const [errors, setErrors] = useState(initialErrors);
     const [disabled, setDisabled] = useState(true);
-    const newPlace = useHistory()
-
-    const [credentials, setCredentials] = useState({});
+    const newPlace = useHistory();
     
 
     const formSubmit = (evt) => {
@@ -75,7 +71,7 @@ const Login = () => {
         } 
         axios.post('https://used-tech.herokuapp.com/api/auth/login', user)
         .then(res => {
-          newPlace.push("/addtech")
+          newPlace.push("/items")
           setFormValues(initialFormValues)
         })  
          axiosWithAuth().post('/auth/login', user)
@@ -92,10 +88,6 @@ const Login = () => {
         const { name, value }= evt.target
         validate(name, value); 
          setFormValues({ ...formValues, [name]: value }) 
-        /*  setCredentials( {
-          ...credentials,
-          [evt.target.name]: evt.target.value,
-        })  */
        }
 
       const validate = (name, value) => {
