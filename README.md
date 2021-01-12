@@ -1,6 +1,8 @@
 This is a Lambda Build Week Project:
 Use My Tech
 
+Key Takeaways: https://docs.google.com/document/d/1pJnh_1EmlJplzz0swhTBkb3ecaydwLdo236J1v_t5rQ/edit?usp=sharing
+
 Description:
 Use My Tech Stuff: like AirBnB, but for high end electronics. Are you tired of paying ridiculous fees for camera and other equipment rentals? Bypass the middleman and rent from a real person!
 
