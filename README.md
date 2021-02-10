@@ -1,6 +1,6 @@
 # This is a Lambda Build Week Project - Use My Tech
 
-#### Deployed App: https://front-end-beige-psi.vercel.app/
+#### Deployed App: https://tender-heyrovsky-000380.netlify.app/
 
 #### Key Takeaways: https://docs.google.com/document/d/1pJnh_1EmlJplzz0swhTBkb3ecaydwLdo236J1v_t5rQ/edit?usp=sharing
 
